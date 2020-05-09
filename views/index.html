@@ -89,21 +89,60 @@
         MARKME!
       </span>
       <span class="footer-text">
-        <a href="https://github.com/khalby786/MarkMe!" target="_blank">GitHub</a>
+        <a href="https://github.com/khalby786/MarkMe!" target="_blank"
+          >GitHub</a
+        >
         <a href="https://twitter.com/khalby786" target="_blank">Twitter</a>
         <a href="/help" target="_blank">Help</a>
       </span>
-      <span id = "words" class="footer-text"></span>
-      <span id = "chars" class="footer-text"></span>
+      <span id="words" class="footer-text"></span>
+      <span id="chars" class="footer-text"></span>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
+    <script src="//yihui.org/js/math-code.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Just one possible MathJax CDN below. You may use others. -->
+    <script async
+      src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
     <script src="/script.js" defer></script>
     <script>
       window.onkeyup = () => {
-        $('#chars').text($('#md-html').text().length + " chars");
-        var words = document.getElementById("md-html").innerText.match(/\b[-?(\w+)?]+\b/gi);
+        var i,
+          text,
+          code,
+          codes = document.getElementsByTagName("code");
+        for (i = 0; i < codes.length; ) {
+          code = codes[i];
+          if (
+            code.parentNode.tagName !== "PRE" &&
+            code.childElementCount === 0
+          ) {
+            text = code.textContent;
+            if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+              text = text.replace(/^\$/, "\\(").replace(/\$$/, "\\)");
+              code.textContent = text;
+            }
+            if (
+              /^\\\((.|\s)+\\\)$/.test(text) ||
+              /^\\\[(.|\s)+\\\]$/.test(text) ||
+              /^\$(.|\s)+\$$/.test(text) ||
+              /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)
+            ) {
+              code.outerHTML = code.innerHTML; // remove <code></code>
+              continue;
+            }
+          }
+          i++;
+        }
+
+        $("#chars").text($("#md-html").text().length + " chars");
+        var words = document
+          .getElementById("md-html")
+          .innerText.match(/\b[-?(\w+)?]+\b/gi);
         document.getElementById("words").innerText = words.length + " words";
         var pres = document.querySelectorAll("pre>code");
         for (var i = 0; i < pres.length; i++) {
