@@ -1,0 +1,115 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MarkMe!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A simple, yet another markdown to HTML converter."
+    />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://khaleelgibran.com"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/night-owl.min.css"
+    />
+    <!-- $('#mydiv').text().length -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  </head>
+  <body>
+    <div id="mdel">
+      <button id="h1" onclick="insert('h1')">
+        H1
+      </button>
+      <button id="h2" onclick="insert('h2')">
+        H2
+      </button>
+      <button id="h3" onclick="insert('h3')">
+        H3
+      </button>
+      <button id="h4" onclick="insert('h4')">
+        H4
+      </button>
+      <button id="h5" onclick="insert('h5')">
+        H5
+      </button>
+      <button id="h6" onclick="insert('h6')">
+        H6
+      </button>
+      <button id="italic" onclick="insert('italic')">
+        <i>I</i>
+      </button>
+      <button id="bold" onclick="insert('bold')">
+        <b>B</b>
+      </button>
+      <button id="strike" onclick="insert('strike')">
+        <strike>S</strike>
+      </button>
+      <button id="ul" onclick="insert('ul')">
+        ●
+      </button>
+      <button id="ol" onclick="insert('ol')">
+        1.
+      </button>
+      <button id="quote" onclick="insert('quote')">
+        &gt;
+      </button>
+      <button id="inline" onclick="insert('inline')">
+        I&lt;&gt;
+      </button>
+      <button id="block" onclick="insert('block')">
+        &lt;&gt;B
+      </button>
+      <button id="hr" onclick="insert('hr')">
+        ---
+      </button>
+      <button id="a" onclick="insert('a')">
+        A
+      </button>
+    </div>
+
+    <!-- Add line breaks forever -->
+    <br /><br />
+
+    <textarea id="md-editor"></textarea>
+
+    <div id="md-html"></div>
+
+    <footer>
+      <span class="markme">
+        MARKME!
+      </span>
+      <span class="footer-text">
+        <a href="https://github.com/khalby786/MarkMe!" target="_blank">GitHub</a>
+        <a href="https://twitter.com/khalby786" target="_blank">Twitter</a>
+        <a href="/help" target="_blank">Help</a>
+      </span>
+      <span id = "words" class="footer-text"></span>
+      <span id = "chars" class="footer-text"></span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
+    <script src="/script.js" defer></script>
+    <script>
+      window.onkeyup = () => {
+        $('#chars').text($('#md-html').text().length + " chars");
+        var words = document.getElementById("md-html").innerText.match(/\b[-?(\w+)?]+\b/gi);
+        document.getElementById("words").innerText = words.length + " words";
+        var pres = document.querySelectorAll("pre>code");
+        for (var i = 0; i < pres.length; i++) {
+          hljs.highlightBlock(pres[i]);
+        }
+      };
+    </script>
+  </body>
+</html>
