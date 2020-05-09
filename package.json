@@ -1,30 +1,27 @@
 {
-  "name": "mathjax",
-  "version": "2.7.3",
-  "description": "Beautiful math in all browsers. MathJax is an open-source JavaScript display engine for LaTeX, MathML, and AsciiMath notation that works in all browsers.",
-  "keywords": [
-    "math",
-    "svg",
-    "mathml",
-    "tex",
-    "latex",
-    "asciimath",
-    "browser",
-    "browser-only"
-  ],
-  "maintainers": [
-    "MathJax Consortium <info@mathjax.org> (http://www.mathjax.org)"
-  ],
-  "bugs": {
-    "url": "http://github.com/mathjax/MathJax/issues"
-  },
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mathjax/MathJax.git"
-  },
-  "main": "./unpacked/MathJax.js",
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo 'No tests here!'"
-  }
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
 }
