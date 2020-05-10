@@ -129,11 +129,14 @@ function dark() {
   for (let i = 0; i < x.length; i++) {
     x[i].style.backgroundColor = "var(--background-dark)";
   }
-  document.getElementById("md-editor").style.backgroundColor = "var(--background-dark)";
+  document.getElementById("md-editor").style.backgroundColor =
+    "var(--background-dark)";
   document.getElementById("md-editor").style.color = "var(--foreground-dark)";
-  document.getElementById("md-html").style.backgroundColor = "var(--background-dark)";
+  document.getElementById("md-html").style.backgroundColor =
+    "var(--background-dark)";
   document.getElementById("md-html").style.color = "var(--foreground-dark)";
-  document.querySelector("footer").style.backgroundColor = "var(--background-dark)";
+  document.querySelector("footer").style.backgroundColor =
+    "var(--background-dark)";
   document.querySelector("footer").style.color = "var(--foreground-dark)";
   var x = document.getElementsByTagName("a");
   for (let i = 0; i < x.length; i++) {
@@ -148,9 +151,11 @@ function light() {
   for (let i = 0; i < x.length; i++) {
     x[i].style.backgroundColor = "var(--background)";
   }
-  document.getElementById("md-editor").style.backgroundColor = "var(--background)";
+  document.getElementById("md-editor").style.backgroundColor =
+    "var(--background)";
   document.getElementById("md-editor").style.color = "var(--foreground)";
-  document.getElementById("md-html").style.backgroundColor = "var(--background)";
+  document.getElementById("md-html").style.backgroundColor =
+    "var(--background)";
   document.getElementById("md-html").style.color = "var(--foreground)";
   document.querySelector("footer").style.backgroundColor = "var(--background)";
   document.querySelector("footer").style.color = "var(--foreground)";
@@ -160,5 +165,17 @@ function light() {
   }
 }
 
+function toggle() {
+  console.log("TOGGGLLLLEEE!!!");
+  if (document.body.style.backgroundColor === "var(--background)") {
+    dark();
+    console.log("DARK!!!!");
+    document.getElementById("toggle").innerText = "LIGHT";
+  } else {
+    light();
+    console.log("LIGHT!!!!");
+    document.getElementById("toggle").innerText = "DARK";
+  }
+}
 // dark();
-// // light();
+// // light(); =
