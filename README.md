@@ -11,6 +11,8 @@ A lightweight and simple markdown to HTML viewer and editor online.
 
 ✨ Live preview of Markdown to HTML conversion
 
+✨ Dark theme!!! 🌛
+
 ✨ **Uses Marked.js for Markdown to HTML conversion**
 
 ### Syntax highlighting
@@ -28,5 +30,4 @@ A lightweight and simple markdown to HTML viewer and editor online.
 ### Upcoming
 
 * Progressive Web App
-* Dark Theme
 * File abilities

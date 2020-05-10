@@ -10,7 +10,11 @@ body {
   --border: #ff6b6b;
   --border-dark: #00F5D4;
   background-color: var(--background);
-  overflow: auto;
+  overflow: auto; 
+}
+
+* {
+  transition: 1s linear !important;
 }
 
 body::-webkit-scrollbar {
@@ -246,4 +250,8 @@ blockquote {
 #words {
   margin-right: 30px;
   font-weight: bold;
+}
+
+#toggle {
+  float: right;
 }
