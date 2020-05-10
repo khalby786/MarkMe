@@ -31,3 +31,26 @@ A lightweight and simple markdown to HTML viewer and editor online.
 
 * Progressive Web App
 * File abilities
+
+
+## Instructions for use
+
+1. Enter Markdown text on the left side.
+2. You'll get the HTML result on the right side!
+3. Enjoy!
+
+*Kinda sounds stupid...*
+
+## Changelogs
+
+Too bad, I don't write changelogs. Instead see Versioning.
+
+## Versioning
+
+This project uses Semantic Versioning. For more info on release, see [https://github.com/khalby786/markme/releases](https://github.com/khalby786/markme/releases)
+
+## Acknowledgements
+
+* Thanks to [Liyas Thomas](https://liyasthomas.web.app) for her support and encouragement in this project
+* CSS Tricks (https://css-tricks.com/build-word-counter-app/) for the code of word and character count
+* And to all whose code I have used
