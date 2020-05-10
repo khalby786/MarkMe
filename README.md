@@ -29,10 +29,10 @@ A lightweight and simple markdown to HTML viewer and editor online.
 
 🔒 Editor and viewer scrolls together for easier use
 
-### Upcoming
+### PWA
 
+* WORKS OFFLINE AFTER THE FIRST USE
 * Progressive Web App
-* File abilities
 
 
 ## Instructions for use
