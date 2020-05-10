@@ -1,6 +1,27 @@
 // declaring the editor for everyone
 var editor = document.getElementById("md-editor");
 
+if (!localStorage.markdown) {
+  // send localstorage value
+  document.getElementById("md-editor").value = "";
+} else {
+  // send localstorage value
+  document.getElementById("md-editor").value = localStorage.markdown;
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 $("#md-html").on("scroll", function() {
   $("#md-editor").scrollTop($(this).scrollTop());
 });
@@ -29,6 +50,7 @@ editor.onkeyup = function() {
   let md = this.value;
   console.log(md);
   document.getElementById("md-html").innerHTML = marked(md);
+  localStorage.setItem("markdown", md);
 };
 
 // function insertAtCursor(value) {
@@ -131,6 +153,8 @@ function dark() {
   }
   document.getElementById("md-editor").style.backgroundColor =
     "var(--background-dark)";
+   document.getElementById("down-pop").style.backgroundColor =
+    "var(--background-dark)";
   document.getElementById("md-editor").style.color = "var(--foreground-dark)";
   document.getElementById("md-html").style.backgroundColor =
     "var(--background-dark)";
@@ -152,6 +176,8 @@ function light() {
     x[i].style.backgroundColor = "var(--background)";
   }
   document.getElementById("md-editor").style.backgroundColor =
+    "var(--background)";
+  document.getElementById("down-pop").style.backgroundColor =
     "var(--background)";
   document.getElementById("md-editor").style.color = "var(--foreground)";
   document.getElementById("md-html").style.backgroundColor =
@@ -179,3 +205,11 @@ function toggle() {
 }
 // dark();
 // // light(); =
+
+function show() {
+  if (document.getElementById("down-pop").style.display === "none") {
+    document.getElementById("down-pop").style.display = "block"
+  } else {
+    document.getElementById("down-pop").style.display = "none";
+  }
+}
