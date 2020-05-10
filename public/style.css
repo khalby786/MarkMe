@@ -3,21 +3,33 @@
 
 body {
   --background: #BFEDEF;
+  --background-dark: #100e17;
   --foreground: black;
+  --foreground-dark: white;
   --test: black;
   --border: #ff6b6b;
+  --border-dark: #00F5D4;
   background-color: var(--background);
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 button {
   background-color: var(--background);
   border: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 30px;
+  font-size: 25px;
   color: var(--border);
-  margin-left: 15px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
+}
+
+button > b, i {
+  color: var(--border) !important;
 }
 
 textarea {
@@ -29,7 +41,7 @@ textarea {
   overflow-y: auto;
   font-size: 24px;
   font-family: 'IBM Plex Mono', monospace;
-  border-right: 1px solid var(--border);
+  border-right: 1px dashed var(--border);
   outline: none;
   display: inline-block;
 }
@@ -38,13 +50,17 @@ textarea::-webkit-scrollbar {
   display: none;
 }
 
-
+#md-html::-webkit-scrollbar {
+  display: none;
+}
 
 textarea:click {
   outline: none;
 }
 
 #mdel {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
   padding-bottom: 10px;
   border-bottom: 3px solid var(--border); 
 }
@@ -63,9 +79,13 @@ textarea:click {
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif !important;
   margin-top: 0px;
   vertical-align: top;
+}
+
+#md-html > h1 {
+  font-family: "Inter", "Helvetica", "Arial", sans-serif !important;
 }
 
 p {
@@ -90,7 +110,7 @@ footer {
   width: 100%;
   bottom: 0px;
   left: 0px;
-  border-top: 1px solid var(--border);
+/*   border-top: 1px solid var(--border); */
   height: 30px;
   position: fixed;
   z-index: 9;
@@ -139,7 +159,7 @@ p {
   color: #444;
 }
 
-ul,
+utestl,
 li {
   font-size: 20px;
 }
