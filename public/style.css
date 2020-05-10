@@ -14,7 +14,7 @@ body {
 }
 
 * {
-  transition: 1s linear !important;
+  transition: 150ms linear !important;
 }
 
 body::-webkit-scrollbar {
@@ -97,7 +97,7 @@ p {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 982px) {
   textarea {
     border: none;
     display: block;
@@ -254,4 +254,18 @@ blockquote {
 
 #toggle {
   float: right;
+}
+
+#download {
+  float: right;
+}
+
+#down-pop {
+  float: right;
+  position: relative;
+  top: 7px;
+  background-color: var(--background);
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  display: none;
 }

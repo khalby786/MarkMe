@@ -15,6 +15,8 @@ A lightweight and simple markdown to HTML viewer and editor online.
 
 ✨ **Uses Marked.js for Markdown to HTML conversion**
 
+📑 Auto saves Markdown content to `localStorage` so that you don't lose it. 
+
 ### Syntax highlighting
 
 🖥️ Supports syntax highlighting for code blocks with support for over 180 languages using **Highlight.js**.
