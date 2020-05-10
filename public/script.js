@@ -1,6 +1,30 @@
 // declaring the editor for everyone
 var editor = document.getElementById("md-editor");
 
+$('#md-html').on('scroll', function () {
+    $('#md-editor').scrollTop($(this).scrollTop());
+});
+
+$('#md-editor').on('scroll', function () {
+    $('#md-html').scrollTop($(this).scrollTop());
+});
+
+
+MathJax.Hub.Config({
+	skipStartupTypeset: true,
+	showProcessingMessages: false,
+	tex2jax: {
+		inlineMath: [['$', '$'], ['\\(', '\\)']],
+		displayMath: [['$$', '$$'], ['\\[', '\\]']],
+		processEscapes: true
+	},
+	TeX: {
+		equationNumbers: {
+			autoNumber: 'AMS'
+		}
+	}
+})
+
 // keyup function to trigger MD to HTML conversion
 editor.onkeyup = function() {
   let md = this.value;
