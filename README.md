@@ -1,75 +1,45 @@
-# MarkMe!
+<img src="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme-banner.png?v=1597063516762">
 
-A lightweight and simple markdown to HTML viewer and editor online.
+<div align="center">
 
-![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme-light.png?v=1589097625997)
-![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme-dark.png?v=1589097862504)
+  <h1>MarkMe!</h1>
 
-✨ Lightweight and mobile-friendly
+  A simple, lightweight and beautiful Markdown editor and viewer.
 
-✨ Simple UI
+</div>
 
-✨ Live preview of Markdown to HTML conversion
+![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-10%20at%204.47.23%20PM.png?v=1597063711106)
+![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-10%20at%204.48.03%20PM.png?v=1597063715232)
 
-✨ Dark theme!!! 🌛
+## Features
 
-✨ **Uses Marked.js for Markdown to HTML conversion**
+- **Lightweight** ☁️ and **beautiful** 😍
 
-📑 Auto saves Markdown content to `localStorage` so that you don't lose it. 
+- Real time **WYSIWYG** Markdown to HTML editor
 
-### Syntax highlighting
+- ✍️ Automatic syntax highlighting for code blocks with **Prism.js**
+  - **185 languages** and **89 styles**
+  - **Automatic** language detection
+  - **Multi-language** code highlighting
+  
+- **Dark mode** 🌙 for *night owls*
 
-🖥️ Supports syntax highlighting for code blocks with support for over 180 languages using **Highlight.js**.
+- **Real time viewer** 🕶️ - view changes as you type
 
-🖥️ And over 89 styles.
+## To-do
 
-🖥️ Automatic language detection
-
-### Easy To Use
-
-🔒 Editor and viewer scrolls together for easier use
-
-### PWA
-
-* WORKS OFFLINE AFTER THE FIRST USE
-* Progressive Web App
-
-
-## Instructions for use
-
-1. Enter Markdown text on the left side.
-2. You'll get the HTML result on the right side!
-3. You can download the Markdown text or the HTML code, both as `.txt` files!
-
-*Kinda sounds stupid...*
-
-## Changelogs
-
-Too bad, I don't write changelogs. Instead see Versioning.
-
-## Versioning
-
-This project uses Semantic Versioning. For more info on release, see [https://github.com/khalby786/markme/releases](https://github.com/khalby786/markme/releases)
+- [] PWA & offline support (the code to do this is present, but randomly it doesn't work on specific devices)
+- [] Mobile responsiveness (doing)
+- [X] Dark theme
+- [X] Download markdown & html in various file formats
+- [] Sanitise HTML to prevent XSS and other dangerous stuff.
 
 ## Acknowledgements
 
-* Thanks to [Liyas Thomas](https://liyasthomas.web.app) for her support and encouragement in this project
-* CSS Tricks (https://css-tricks.com/build-word-counter-app/) for the code of word and character count
-* And to all whose code I have used
+* Thanks to [Liyas Thomas](https://liyasthomas.web.app) for her support and encouragement in this project because MarkMe! is based on Marcdown by Liyas Thomas.
 
-<!-- Copy and Paste Me -->
+* CSS Tricks (https://css-tricks.com/build-word-counter-app/) for the code of word and character count.
 
+This is just a side-project I did, I learnt a lot from creating this web project. 
 
-
-  
-
-
-
-    
-
-
-
-
-
-  
-
+Made with Vue & [Glitch](https;//glitch.com)

@@ -10,6 +10,9 @@ body {
   --test: black;
   --border: #ff6b6b;
   --border-dark: #00F5D4;
+  --theme3-back: white;
+  --theme3-font: black;
+  --theme3-border: black;
   background-color: var(--background);
   overflow: auto;
 }
@@ -37,7 +40,7 @@ button {
   background-color: var(--background);
   border: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 25px;
+  font-size: 20px;
   color: var(--border);
   margin-left: 20px;
   margin-right: 20px;
@@ -78,8 +81,6 @@ textarea:click {
 #mdel {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  padding-bottom: 10px;
-/*   border-bottom: 3px solid var(--border); */
   display: flex;
   flex-grow: 1;
   overflow-x: auto;
@@ -90,7 +91,7 @@ textarea:click {
 #md-html {
   background-color: var(--background);
   border: none;
-  width: 47%;
+  width: 48%;
   resize: none;
   min-height: 500px;
   overflow-y: auto;
@@ -114,16 +115,20 @@ p {
   margin-block-start: 0px;
 }
 
-@media only screen and (max-width: 982px) {
+@media only screen and (max-width: 1000px) {
   textarea {
     border: none;
     display: block;
     width: 100%;
+    margin: 0px;
+    height: 100px;
   }
   #md-html {
-    border-top: 1px solid var(--border);
+    border-top: 1px dashed var(--border);
     display: block;
     width: 100%;
+    margin: 0px;
+    height: 100px;
   }
 }
 
@@ -389,6 +394,7 @@ kbd {
 .tooltip {
   display: block !important;
   z-index: 10000;
+  margin-top: -30px;
 }
  
 .tooltip .tooltip-inner {
@@ -498,18 +504,6 @@ kbd {
   font-family: "IBM Plex Mono", monospace;
   display: inline-block;
   cursor: pointer;
-}
-
-#github-logo {
-  height: 50px !important;
-  width: 50px !important;
-}
-
-.sign-in {
-  padding: 10px 20px;
-  border-radius: 3px;
-  border: 3px solid var(--border);
-  background-color: var(--background);
 }
 
 .cancel {
