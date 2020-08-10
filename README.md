@@ -39,7 +39,7 @@ A lightweight and simple markdown to HTML viewer and editor online.
 
 1. Enter Markdown text on the left side.
 2. You'll get the HTML result on the right side!
-3. Enjoy!
+3. You can download the Markdown text or the HTML code, both as `.txt` files!
 
 *Kinda sounds stupid...*
 
@@ -56,3 +56,20 @@ This project uses Semantic Versioning. For more info on release, see [https://gi
 * Thanks to [Liyas Thomas](https://liyasthomas.web.app) for her support and encouragement in this project
 * CSS Tricks (https://css-tricks.com/build-word-counter-app/) for the code of word and character count
 * And to all whose code I have used
+
+<!-- Copy and Paste Me -->
+
+
+
+  
+
+
+
+    
+
+
+
+
+
+  
+

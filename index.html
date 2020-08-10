@@ -1,0 +1,214 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MarkMe!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A simple, yet another markdown to HTML converter."
+    />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme.png?v=1589130350996"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/night-owl.min.css"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>MarkMe!</title>
+    <meta name="title" content="MarkMe!" />
+    <meta
+      name="description"
+      content="A simple, yet another markdown to HTML converter."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://markme.glitch.me/" />
+    <meta property="og:title" content="MarkMe!" />
+    <meta
+      property="og:description"
+      content="A simple, yet another markdown to HTML converter."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme%20(1).png?v=1589130880448"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://markme.glitch.me/" />
+    <meta property="twitter:title" content="MarkMe!" />
+    <meta
+      property="twitter:description"
+      content="A simple, yet another markdown to HTML converter."
+    />
+    <meta
+      property="twitter:image"
+      content="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme%20(1).png?v=1589130880448"
+    />
+
+    <!-- $('#mydiv').text().length -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="/pwa.js"></script>
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="mdel">
+        <markdown_el element="H1" insertel="h1" tooltip="Heading 1"></markdown_el>
+        <markdown_el element="H2" insertel="h2" tooltip="Heading 2"></markdown_el>
+        <markdown_el element="H3" insertel="h3" tooltip="Heading 3"></markdown_el>
+        <markdown_el element="H4" insertel="h4" tooltip="Heading 4"></markdown_el>
+        <markdown_el element="H5" insertel="h5" tooltip="Heading 5"></markdown_el>
+        <markdown_el element="H6" insertel="h6" tooltip="Heading 6"></markdown_el>
+        <markdown_el element="<i>I</i>" insertel="italic" tooltip="Italic text"></markdown_el>
+        <markdown_el element="<b>B</b>" insertel="bold" tooltip="Bold text"></markdown_el>
+        <markdown_el element="<strike>S</strike>" insertel="strike" tooltip="Strikethrough text"></markdown_el>
+        <markdown_el element="●" insertel="ul" tooltip="Unordered list"></markdown_el>
+        <markdown_el element="1" insertel="ol" tooltip="Ordered list"></markdown_el>
+        <markdown_el element="&gt" insertel="quote" tooltip="Blockquote"></markdown_el>
+        <markdown_el element="I&lt&gt" insertel="inline" tooltip="Inline code"></markdown_el>
+        <markdown_el element="&lt&gtB" insertel="block" tooltip="Block code"></markdown_el>
+        <markdown_el element="---" insertel="hr" tooltip="Horizontal rule"></markdown_el>
+        <markdown_el element="A" insertel="a" tooltip="Insert link"></markdown_el>
+        <download></download>
+        <theme></theme>
+        <button id="github-login"  @click="visible === false ? showgithub() : hidegithub()">
+          <i class="devicon-github-plain"></i>
+        </button>
+      </div>
+
+<!--       <div id="down-pop">
+          <button @click="download('markdown.txt', editor.value);">
+            MARKDOWN
+          </button>
+          <button
+            @click="download('html.txt', document.getElementById('md-html').innerHTML);"
+          >
+            HTML
+          </button>
+        </div> -->
+      
+      <div id="modal-background">
+        <div id="down-pop">
+          
+          <center>
+            
+            <h1>
+              Download MD/HTML
+            </h1>
+            <p class="right">
+              Download the rendered HTML as a <code @click="download('html.html', html);" class="download-option">.html</code> file, <code @click="download('html.txt', html);" class="download-option">.txt</code> or a <code @click="download('html.pdf', html);" class="download-option">.pdf</code> file.
+              <br><br>
+              Alternatively, you can download the Markdown content as a <code @click="download('markdown.md', editor);" class="download-option">.md</code>, <code @click="download('markdown.txt', editor);" class="download-option">.txt</code> or a <code @click="download('markdown.pdf', editor);" class="download-option">.pdf</code> file.
+            </p>
+            
+            <button class="cancel" @click="cancel">
+              Cancel...
+            </button>
+            
+          </center>
+          
+        </div>
+      </div>
+      
+      <!-- Add line breaks forever -->
+      <br /><br />
+
+      <mdhtml></mdhtml>
+
+      <footer>
+        <span class="markme">
+          MARKME!
+        </span>
+        <span
+          class="center"
+          style="background-color:var(--border)"
+          @click="hidemdtext === 'Hide' ? hidemd() : showmd()"
+        >
+          {{hidemdtext}} Markdown
+        </span>
+        <span
+          class="center"
+          style="background-color:var(--border)"
+          @click="hidehtmltext === 'Hide' ? hidehtml() : showhtml()"
+        >
+          {{hidehtmltext}} HTML
+        </span>
+        <span class="footer-text">
+          <a href="https://github.com/khalby786/MarkMe" target="_blank"
+            >GitHub</a
+          >
+          <a href="https://twitter.com/khalby786" target="_blank">Twitter</a>
+          <a href="/help" target="_blank">Help</a>
+        </span>
+        <span id="words" class="footer-text"></span>
+        <span id="chars" class="footer-text"></span>
+      </footer>
+    </div>
+
+<!--     <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://unpkg.com/v-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+    <script src="/script.js" defer></script>
+    <script>
+      window.onkeyup = () => {
+        var i,
+          text,
+          code,
+          codes = document.getElementsByTagName("code");
+        for (i = 0; i < codes.length; ) {
+          code = codes[i];
+          if (
+            code.parentNode.tagName !== "PRE" &&
+            code.childElementCount === 0
+          ) {
+            text = code.textContent;
+            if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+              text = text.replace(/^\$/, "\\(").replace(/\$$/, "\\)");
+              code.textContent = text;
+            }
+            if (
+              /^\\\((.|\s)+\\\)$/.test(text) ||
+              /^\\\[(.|\s)+\\\]$/.test(text) ||
+              /^\$(.|\s)+\$$/.test(text) ||
+              /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)
+            ) {
+              code.outerHTML = code.innerHTML; // remove <code></code>
+              continue;
+            }
+          }
+          i++;
+        }
+
+        $("#chars").text($("#md-html").text().length + " chars");
+        var words = document
+          .getElementById("md-html")
+          .innerText.match(/\b[-?(\w+)?]+\b/gi);
+        if (words = "") {
+          document.getElementById("words").innerText = 0 + " words";  
+        } else {
+          document.getElementById("words").innerText = words.length + " words";
+        }
+        var pres = document.querySelectorAll("pre>code");
+        for (var i = 0; i < pres.length; i++) {
+          hljs.highlightBlock(pres[i]);
+        }
+      };
+    </script>
+  </body>
+</html>
