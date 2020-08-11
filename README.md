@@ -35,7 +35,6 @@
 - [ ] Sanitise HTML to prevent XSS and other dangerous stuff.
 - [ ] Sync scrolling
 
-
 ## Acknowledgements
 
 * Thanks to [Liyas Thomas](https://liyasthomas.web.app) for her support and encouragement in this project because MarkMe! is based on Marcdown by Liyas Thomas.
