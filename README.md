@@ -28,11 +28,12 @@
 
 ## To-do
 
-- [] PWA & offline support (the code to do this is present, but randomly it doesn't work on specific devices)
-- [] Mobile responsiveness (doing)
+- [ ] PWA & offline support (the code to do this is present, but randomly it doesn't work on specific devices)
+- [ ] Mobile responsiveness (doing)
 - [X] Dark theme
 - [X] Download markdown & html in various file formats
-- [] Sanitise HTML to prevent XSS and other dangerous stuff.
+- [ ] Sanitise HTML to prevent XSS and other dangerous stuff.
+- [ ] Sync scrolling
 
 ## Acknowledgements
 

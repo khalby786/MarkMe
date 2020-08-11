@@ -40,7 +40,7 @@ button {
   background-color: var(--background);
   border: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 20px;
+  font-size: 1.5em;
   color: var(--border);
   margin-left: 20px;
   margin-right: 20px;
@@ -57,9 +57,9 @@ textarea {
   border: none;
   width: 50%;
   resize: none;
-  min-height: 500px;
+  height: 85vh;
   overflow-y: auto;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Roboto Mono", "IBM Plex Mono", monospace;
   border-right: 1px dashed var(--border);
   outline: none;
@@ -84,8 +84,10 @@ textarea:click {
   display: flex;
   flex-grow: 1;
   overflow-x: auto;
-  height: 50px;
+  min-height: 50px;
+  height: 100%;
   overflow-y: hidden;
+  border-bottom: 1px dashed var(--border);
 }
 
 #md-html {
@@ -94,11 +96,11 @@ textarea:click {
   width: 48%;
   resize: none;
   min-height: 500px;
+  height: 85vh;
   overflow-y: auto;
   font-size: 24px;
   outline: none;
   display: inline-block;
-  height: 50px;
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
@@ -121,14 +123,26 @@ p {
     display: block;
     width: 100%;
     margin: 0px;
-    height: 100px;
+    height: 50vh;
+    padding: 0px;
   }
   #md-html {
     border-top: 1px dashed var(--border);
     display: block;
     width: 100%;
     margin: 0px;
-    height: 100px;
+    height: 50vh;
+    padding: 0px;
+  }
+  #mdel {
+    margin: 0px;
+  }
+  #app {
+    margin: 0px;
+    padding: 0px;
+  }
+  footer {
+    margin: 0px;
   }
 }
 
@@ -136,7 +150,7 @@ footer {
   width: 100%;
   bottom: 0px;
   left: 0px;
-  /*   border-top: 1px solid var(--border); */
+  border-top: 1px dashed var(--border);
   height: 30px;
   position: fixed;
   z-index: 9;
@@ -182,7 +196,7 @@ h1 {
 
 p {
   font-size: 20px;
-  line-height: 1.8em;
+  line-height: 1.5em;
 }
 
 utestl,

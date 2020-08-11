@@ -231,7 +231,7 @@ if (!localStorage.getItem("markdown")) {
 }
 
 Vue.component("mdhtml", {
-  template: `<div><textarea id="md-editor" v-model="md" v-on:keyup="convert" placeholder="🔮 enter markdown here..."></textarea><div id="md-html" v-html="html"></div></div>`,
+  template: `<div id="editor-containers"><textarea id="md-editor" v-model="md" v-on:keyup="convert" placeholder="🔮 enter markdown here..." @scroll="document.getElementById('md-html').scrollTop = document.getElementById('md-editor').scrollTop"></textarea><div id="md-html" v-html="html"></div></div>`,
   data() {
     return {
       md: localstorage || "",
@@ -325,4 +325,15 @@ var app = new Vue({
     this.editor = document.getElementById('md-editor').value;
     this.html = document.getElementById('md-html').innerHTML;
   }
+});
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can install the PWA
+  showInstallPromotion();
 });
