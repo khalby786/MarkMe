@@ -2,7 +2,7 @@
   "name": "MarkMe!",
   "short_name": "MarkMe!",
   "theme_color": "#ff6b6b",
-  "background_color": "#bfedef",
+  "background_color": "#100e17",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",

@@ -56,6 +56,8 @@
       property="twitter:image"
       content="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmarkme%20(1).png?v=1589130880448"
     />
+    
+    <meta name="theme-color" content="#ff6b6b"/>
 
     <!-- $('#mydiv').text().length -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -89,16 +91,7 @@
         </button>
       </div>
 
-<!--       <div id="down-pop">
-          <button @click="download('markdown.txt', editor.value);">
-            MARKDOWN
-          </button>
-          <button
-            @click="download('html.txt', document.getElementById('md-html').innerHTML);"
-          >
-            HTML
-          </button>
-        </div> -->
+      <mdhtml></mdhtml>
       
       <div id="modal-background">
         <div id="down-pop">
@@ -122,26 +115,19 @@
           
         </div>
       </div>
-      
-      <!-- Add line breaks forever -->
-      <br /><br />
-
-      <mdhtml></mdhtml>
 
       <footer>
-        <span class="markme">
-          MARKME!
-        </span>
         <span
           class="center"
-          style="background-color:var(--border)"
+          style="border-bottom:1px solid var(--border)"
           @click="hidemdtext === 'Hide' ? hidemd() : showmd()"
         >
           {{hidemdtext}} Markdown
         </span>
+        &nbsp;
         <span
           class="center"
-          style="background-color:var(--border)"
+          style="border-bottom:1px solid var(--border)"
           @click="hidehtmltext === 'Hide' ? hidehtml() : showhtml()"
         >
           {{hidehtmltext}} HTML
@@ -199,7 +185,7 @@
         var words = document
           .getElementById("md-html")
           .innerText.match(/\b[-?(\w+)?]+\b/gi);
-        if (words = "") {
+        if (words === "") {
           document.getElementById("words").innerText = 0 + " words";  
         } else {
           document.getElementById("words").innerText = words.length + " words";
@@ -209,6 +195,11 @@
           hljs.highlightBlock(pres[i]);
         }
       };
+      
+      $('#md-editor').on('scroll', function () {
+        console.log("scrolling")
+        $('#md-html').scrollTop($(this).scrollTop());
+      });
     </script>
   </body>
 </html>
