@@ -184,11 +184,6 @@ a {
 }
 
 h1 {
-  color: var(--border);
-  font-family: "IBM Plex Mono", monospace;
-}
-
-h1 {
   font-size: calc(100vw / 12.5);
   font-weight: 740;
   line-height: 1;
@@ -197,6 +192,7 @@ h1 {
 p {
   font-size: 20px;
   line-height: 1.5em;
+  margin: 4px 0;
 }
 
 utestl,
@@ -213,6 +209,15 @@ em {
 
 img {
   width: 100%;
+}
+
+h1, h2 {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 4px 0;
+  counter-increment: line;
 }
 
 table {
@@ -276,7 +281,7 @@ blockquote {
   border-left: 5px solid var(--border);
   background-color: #ff9494;
   padding-top: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 3px;
   padding-right: 10px;
   padding-left: 10px;
   font-family: "Inter", sans-serif;

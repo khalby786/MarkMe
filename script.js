@@ -53,6 +53,7 @@ Vue.component("markdown_el", {
         case "ol":
           charBehind = "1.";
           charAfter = " ";
+          break;
         case "quote":
           charBehind = "> ";
           charAfter = " ";
