@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap");
 @import url("https://rsms.me/inter/inter.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
   --background: #BFEDEF;
@@ -39,7 +40,7 @@ body::-webkit-scrollbar {
 button {
   background-color: var(--background);
   border: none;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Inter", sans-serif, "IBM Plex Mono", monospace;
   font-size: 1.5em;
   color: var(--border);
   margin-left: 20px;
@@ -104,7 +105,7 @@ textarea:click {
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: "Inter", "Helvetica", "Arial", sans-serif !important;
+  font-family: "Poppins", "Inter", "Helvetica", "Arial", sans-serif !important;
   margin-top: 0px;
   vertical-align: top;
 }
@@ -146,6 +147,13 @@ p {
   }
 }
 
+@media only screen and (max-width: 650px) {
+  footer {
+    text-align: center;
+    overflow: auto;
+  }
+}
+
 footer {
   width: 100%;
   bottom: 0px;
@@ -155,7 +163,6 @@ footer {
   position: fixed;
   z-index: 9;
   background-color: var(--background);
-  padding-bottom: 10px;
   padding-top: 10px;
   padding-left: 10px;
 }
@@ -175,11 +182,12 @@ pre > code {
   font-family: "Roboto Mono", "IBM Plex Mono", monospace;
   float: right;
   padding-right: 20px;
+  border-bottom: 0px solid black !important;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
   border-bottom: 1px solid var(--border);
 }
 
@@ -192,7 +200,8 @@ h1 {
 p {
   font-size: 20px;
   line-height: 1.5em;
-  margin: 4px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 utestl,
@@ -211,12 +220,13 @@ img {
   width: 100%;
 }
 
-h1, h2 {
+/* h1, h2 {
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-}
+} */
 
 h1, h2, h3, h4, h5, h6, p {
-  margin: 4px 0;
+  margin-top: 12px;
+  margin-bottom: 12px;
   counter-increment: line;
 }
 
@@ -413,13 +423,12 @@ kbd {
 .tooltip {
   display: block !important;
   z-index: 10000;
-  margin-top: -30px;
 }
  
 .tooltip .tooltip-inner {
   background: black;
   color: white;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 5px 10px 4px;
   font-family: "Inter", "Helvetica", sans-serif;
 }
@@ -430,7 +439,6 @@ kbd {
   border-style: solid;
   position: absolute;
   margin: 5px;
-  border-color: black;
   z-index: 1;
 }
  
@@ -539,4 +547,11 @@ kbd {
   color: black !important;
   font-family: "IBM Plex Mono", monospace;
   cursor: pointer;
+}
+
+#icon {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  border-radius: 5px;
 }

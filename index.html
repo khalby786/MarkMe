@@ -58,32 +58,39 @@
     />
     
     <meta name="theme-color" content="#ff6b6b"/>
+    
+    <script>
+      if (location.protocol !== 'https:') {
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      }
+    </script>
 
     <!-- $('#mydiv').text().length -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-    <script src="/pwa.js"></script>
-    <link rel="manifest" href="/manifest.json" />
+    <script src="./pwa/pwa.js"></script>
+    <link rel="manifest" href="./pwa/manifest.json" />
   </head>
   <body>
     <div id="app">
       <div id="mdel">
-        <markdown_el element="H1" insertel="h1" tooltip="Heading 1"></markdown_el>
-        <markdown_el element="H2" insertel="h2" tooltip="Heading 2"></markdown_el>
-        <markdown_el element="H3" insertel="h3" tooltip="Heading 3"></markdown_el>
-        <markdown_el element="H4" insertel="h4" tooltip="Heading 4"></markdown_el>
-        <markdown_el element="H5" insertel="h5" tooltip="Heading 5"></markdown_el>
-        <markdown_el element="H6" insertel="h6" tooltip="Heading 6"></markdown_el>
-        <markdown_el element="<i>I</i>" insertel="italic" tooltip="Italic text"></markdown_el>
-        <markdown_el element="<b>B</b>" insertel="bold" tooltip="Bold text"></markdown_el>
-        <markdown_el element="<strike>S</strike>" insertel="strike" tooltip="Strikethrough text"></markdown_el>
+        <a href="/"><img src="https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2Fmark.png?v=1597137986775" id="icon" style="border-radius:5px;"></a>
+        <markdown_el element="h1" insertel="h1" tooltip="Heading 1"></markdown_el>
+        <markdown_el element="h2" insertel="h2" tooltip="Heading 2"></markdown_el>
+        <markdown_el element="h3" insertel="h3" tooltip="Heading 3"></markdown_el>
+        <markdown_el element="h4" insertel="h4" tooltip="Heading 4"></markdown_el>
+        <markdown_el element="h5" insertel="h5" tooltip="Heading 5"></markdown_el>
+        <markdown_el element="h6" insertel="h6" tooltip="Heading 6"></markdown_el>
+        <markdown_el element="<i>i</i>" insertel="italic" tooltip="Italic text"></markdown_el>
+        <markdown_el element="<b>b</b>" insertel="bold" tooltip="Bold text"></markdown_el>
+        <markdown_el element="<strike>s</strike>" insertel="strike" tooltip="Strikethrough text"></markdown_el>
         <markdown_el element="●" insertel="ul" tooltip="Unordered list"></markdown_el>
         <markdown_el element="1" insertel="ol" tooltip="Ordered list"></markdown_el>
         <markdown_el element="&gt" insertel="quote" tooltip="Blockquote"></markdown_el>
-        <markdown_el element="I&lt&gt" insertel="inline" tooltip="Inline code"></markdown_el>
-        <markdown_el element="&lt&gtB" insertel="block" tooltip="Block code"></markdown_el>
+        <markdown_el element="i&lt&gt" insertel="inline" tooltip="Inline code"></markdown_el>
+        <markdown_el element="&lt&gtb" insertel="block" tooltip="Block code"></markdown_el>
         <markdown_el element="-" insertel="hr" tooltip="Horizontal rule"></markdown_el>
-        <markdown_el element="A" insertel="a" tooltip="Insert link"></markdown_el>
+        <markdown_el element="a" insertel="a" tooltip="Insert link"></markdown_el>
         <download></download>
         <theme></theme>
         <button id="github-login"  @click="visible === false ? showgithub() : hidegithub()">
@@ -133,11 +140,10 @@
           {{hidehtmltext}} HTML
         </span>
         <span class="footer-text">
-          <a href="https://github.com/khalby786/MarkMe" target="_blank"
-            >GitHub</a
+          <a href="https://github.com/khalby786/MarkMe" target="_blank" style="border: none !important;"><i class="fab fa-github" style="font-size: 20px;"></i></a
           >
-          <a href="https://twitter.com/khalby786" target="_blank">Twitter</a>
-          <a href="https://github.com/khalby786/MarkMe#markme" target="_blank">Help</a>
+          <a href="https://twitter.com/khalby786" target="_blank" style="border: none !important;"><i class="fab fa-twitter" style="font-size: 20px;"></i></a>
+          <a href="https://github.com/khalby786/MarkMe#markme" target="_blank" style="border: none !important;"><i class="far fa-question-circle" style="font-size: 20px;"></i></a>
         </span>
         <span id="words" class="footer-text"></span>
         <span id="chars" class="footer-text"></span>
@@ -145,11 +151,16 @@
     </div>
 
 <!--     <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-    <script src="https://unpkg.com/v-tooltip"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/v-tooltip" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.0.12/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+    <script src="https://unpkg.com/prettier@2.0.5/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@2.0.5/parser-html.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kyle-rb/simplecopy/simplecopy.min.js"></script> 
+    <script src="https://kit.fontawesome.com/98f54f160f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="/script.js" defer></script>
     <script>
       window.onkeyup = () => {
