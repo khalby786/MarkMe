@@ -236,14 +236,27 @@ Vue.component("mdhtml", {
   data() {
     return {
       md: localstorage || "",
-      html: marked(localstorage) || ""
+      html: DOMPurify.sanitize(marked(localstorage)) || ""
     };
   },
   methods: {
     convert() {
-      this.html = marked(this.md);
+      let uglyhtml = DOMPurify.sanitize(marked(this.md));
+      let prettified = prettier.format(uglyhtml, {
+        parser: "html",
+        plugins: prettierPlugins,
+      });
+      console.log(uglyhtml);
+      console.log(prettified);
+      this.html = prettified;
       localStorage.setItem("markdown", this.md);
     },
+    copyhtml() {
+      simplecopy(this.html)
+    },
+    copymd() {
+      simplecopy(this.md)
+    }
   },
   mounted: function() {
     this.convert();
@@ -328,13 +341,6 @@ var app = new Vue({
   }
 });
 
-let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-});
+   // so it can be date UI notify the user they can install the PWA
+  

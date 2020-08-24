@@ -18,8 +18,8 @@
 
 ---
 
-![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-10%20at%204.47.23%20PM.png?v=1597063711106)
-![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-10%20at%204.48.03%20PM.png?v=1597063715232)
+![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-24%20at%204.28.56%20PM.png?v=1598272180342)
+![MarkMe!](https://cdn.glitch.com/e0b394db-80ae-4783-a487-56cecfa7615a%2FScreen%20Shot%202020-08-24%20at%204.29.13%20PM.png?v=1598272181845)
 
 ## Features
 
@@ -36,13 +36,21 @@
 
 - **Real time viewer** 🕶️ - view changes as you type
 
+- **Sanitises** 🧹 your HTML output code and removes harmful HTML to prevent XSS attacks 
+
+- Supports **GitHub-flavoured** markdown
+
+- Output HTML is **beautified** 🖌️ using **Prettier**
+
+- **Installable PWA** 💾 - install on desktop or mobile [*BETA*]
+
 ## To-do
 
 - [ ] PWA & offline support (the code to do this is present, but randomly it doesn't work on specific devices)
 - [ ] Mobile responsiveness (doing)
 - [X] Dark theme
 - [X] Download markdown & html in various file formats
-- [ ] Sanitise HTML to prevent XSS and other dangerous stuff.
+- [X] Sanitise HTML to prevent XSS and other dangerous stuff.
 - [ ] Sync scrolling
 
 ## License
