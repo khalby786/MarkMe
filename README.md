@@ -69,7 +69,7 @@ Almost **everything** I create is open-source and free. While it takes time and 
 
 * Thanks to [Liyas Thomas](https://liyasthomas.web.app) for his support and encouragement in this project because MarkMe! is based on Marcdown by Liyas Thomas.
 
-* CSS Tricks (https://css-tricks.com/build-word-counter-app/) for the code of word and character count.
+* [CSS Tricks](https://css-tricks.com/build-word-counter-app/) for the code of word and character count.
 
 * Special thanks to [Glitch](https://glitch.com) for their amazing hosting, do check it out!
 
