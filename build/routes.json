@@ -1,0 +1,16 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "C:\\\\markme\\\\pages\\\\about.vue",
+    "chunkName": "pages/about",
+    "_name": "_6a2c415a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\markme\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2abc8bd0"
+  }
+]

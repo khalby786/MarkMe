@@ -1,0 +1,27 @@
+{
+  "name": "markme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.9.1",
+    "dompurify": "^2.2.7",
+    "marked": "^2.0.1",
+    "nuxt": "^2.15.3",
+    "prismjs": "^1.23.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "glitch": {
+    "projectType": "generated_static"
+  }
+}
