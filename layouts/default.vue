@@ -2,6 +2,8 @@
   <div>
     <link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
     <Nuxt />
+
+    <Footer />
   </div>
 </template>
 
@@ -19,6 +21,7 @@ html {
   background-color: var(--background-dark);
   color: var(--foreground-dark);
   unicode-bidi: isolate; 
+  font-family: var(--sans-serif);
   --background: #BFEDEF;
   --background-dark: #100e17;
   --foreground: black;
@@ -28,6 +31,7 @@ html {
   --border-dark: #00F5D4;
   --scrollbarBG: #100e17;
   --thumbBG: #90A4AE;
+  font-weight: 400;
 }
 
 body::-webkit-scrollbar {
@@ -69,6 +73,14 @@ button:hover {
   background-color: var(--foreground-dark);
   color: var(--background-dark);
   transition: 150ms;
+}
+
+img {
+  border-radius: 9px;
+  width: 100%;
+  box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.138), 0 0px 5.3px rgba(0, 0, 0, 0.198),
+    0 0px 10px rgba(0, 0, 0, 0.245), 0 0px 17.9px rgba(0, 0, 0, 0.292),
+    0 0px 33.4px rgba(0, 0, 0, 0.352), 0 0px 80px rgba(0, 0, 0, 0.49);
 }
 
 .accent {

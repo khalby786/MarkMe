@@ -1,5 +1,7 @@
+export { default as Footer } from '../..\\components\\Footer.vue'
 export { default as Overlay } from '../..\\components\\Overlay.vue'
 
+export const LazyFooter = import('../..\\components\\Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
 export const LazyOverlay = import('../..\\components\\Overlay.vue' /* webpackChunkName: "components/overlay" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607

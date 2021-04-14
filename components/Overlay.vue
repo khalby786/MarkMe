@@ -16,7 +16,7 @@
             A simple, lightweight and beautiful Markdown editor and viewer.
           </p>
           <button class="links" @click="showOverlay = false">Get Started</button>&nbsp;
-          <button class="links"><NuxtLink to="/about">About</NuxtLink></button>
+          <NuxtLink to="/about"><button class="links">About</button></NuxtLink>
         </div>
       </div>
     </div>

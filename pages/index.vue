@@ -11,7 +11,9 @@
       <span class="md-element" @click="insert('h6')">h6</span>
       <span class="md-element" @click="insert('bold')"><b>b</b></span>
       <span class="md-element" @click="insert('italic')"><i>i</i></span>
-      <span class="md-element" @click="insert('strike')"><strike>s</strike></span>
+      <span class="md-element" @click="insert('strike')"
+        ><strike>s</strike></span
+      >
       <span class="md-element" @click="insert('ul')"> · </span>
       <span class="md-element" @click="insert('ol')">1</span>
       <span class="md-element" @click="insert('quote')">&gt;</span>
@@ -26,14 +28,14 @@
         <textarea id="markdown-input" ref="markdownEditor" v-model="markdown">
         </textarea>
       </div>
-      <div id="html" v-html="html"></div>
+      <div id="html" ref="htmlEditor" v-html="html"></div>
     </div>
   </div>
 </template>
 
 <script>
-import marked from "marked";
-import DOMPurify from "dompurify";
+import marked from "marked"
+import DOMPurify from "dompurify"
 
 export default {
   data: function () {
@@ -119,7 +121,7 @@ export default {
           console.error("Unknown markdown character!")
       }
 
-      let editor = this.$refs.markdownEditor;
+      let editor = this.$refs.markdownEditor
 
       let start = editor.selectionStart // editor start
       let end = editor.selectionEnd // editor end
@@ -210,5 +212,4 @@ textarea {
 textarea:focus {
   outline: none;
 }
-
 </style>
