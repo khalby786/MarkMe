@@ -9,16 +9,26 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/auth-next": "5.0.0-1624817847.21691f1",
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.9.1",
     "dompurify": "^2.2.7",
+    "katex": "^0.13.18",
     "marked": "^2.0.1",
+    "mathjax-parser": "^4.0.7",
+    "node-emoji": "^1.10.0",
     "nuxt": "^2.15.3",
-    "prismjs": "^1.23.0"
+    "prismjs": "^1.23.0",
+    "remotestorage-widget": "^1.5.2",
+    "vue-js-modal": "^2.0.1"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^4.0.3",
+    "autoprefixer": "^10.2.5",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "postcss": "^8.2.10",
     "prettier": "^2.2.1"
   },
   "glitch": {

@@ -11,12 +11,7 @@
           </button>
         </div>
         <div>
-          <h1 class="title">#markme</h1>
-          <p class="description">
-            A simple, lightweight and beautiful Markdown editor and viewer.
-          </p>
-          <button class="links" @click="showOverlay = false">Get Started</button>&nbsp;
-          <NuxtLink to="/about"><button class="links">About</button></NuxtLink>
+          <div id="remotestorage-widget"></div>
         </div>
       </div>
     </div>
@@ -79,16 +74,11 @@ export default {
   vertical-align: middle;
 }
 
-  .title {
-    font-family: "Fira Code", monospace;
-    color: var(--border);
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
