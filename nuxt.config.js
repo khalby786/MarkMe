@@ -1,4 +1,6 @@
 export default {
+  ssr: false,
+
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
@@ -17,7 +19,17 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/png", href: "/icon.png" },
-      { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css", integrity: "sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET", crossorigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css",
+        integrity:
+          "sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css",
+      },
     ],
     script: [
       { src: "https://cdn.jsdelivr.net/npm/marked/marked.min.js", body: true },
@@ -28,13 +40,13 @@ export default {
       },
       {
         src: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js",
-        integrity: "sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb",
+        integrity:
+          "sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb",
         crossorigin: "anonymous",
         defer: true,
       },
       {
-        src:
-          "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js",
+        src: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js",
         integrity:
           "sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl",
         crossorigin: "anonymous",
@@ -43,11 +55,18 @@ export default {
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  plugins: [
+    "~plugins/vue-js-modal.js",
+    { src: "~plugins/nuxt-codemirror-plugin.js", ssr: false },
+    { src: "~plugins/vue-tippy.js", ssr: false },
+    { src: "~plugins/vue-simple-context-menu.js", ssr: false },
+  ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~plugins/vue-js-modal.js"],
+  css: [
+    "codemirror/lib/codemirror.css",
+    "codemirror/addon/merge/merge.css",
+    "codemirror/theme/base16-dark.css",
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -63,24 +82,6 @@ export default {
     // "@nuxtjs/auth-next",
   ],
 
-  // Auth0 auth: https://auth.nuxtjs.org/providers/auth0
-  // auth: {
-  //   redirect: {
-  //     login: "/", // redirect user when not connected
-  //     callback: "/me",
-  //   },
-  //   strategies: {
-  //     local: false,
-  //     auth0: {
-  //       domain: "dev-5jlcazpl.us.auth0.com",
-  //       clientId: "9P4GUlBxGVlZYF7smfi4lhzu0VCn3mY4",
-  //       clientSecret:
-  //         "t-Yi07bSVgt5UVq8ztGBIjE643KvUCq0x-OzNQukniNMnJPkLoczi1kRnJZRzpST",
-  //       logoutRedirectUri: "http://localhost:3000",
-  //     },
-  //   },
-  // },
-
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
@@ -90,4 +91,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // loading indicator: https://nuxtjs.org/docs/features/loading/#the-loading-indicator-property
+  loadingIndicator: {
+    name: "pulse",
+    color: "#ff6b6b",
+    background: "#100e17",
+  },
+
+  loading: "~/components/LoadingBar.vue",
 };

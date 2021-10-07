@@ -32,11 +32,19 @@ html {
   --foreground-dark: white;
   --test: black;
   --border: #ff6b6b;
-  --border-dark: #00f5d4;
+  --border-dark: #1e1c26;
   --scrollbarBG: #100e17;
   --thumbBG: #90a4ae;
   font-weight: 400;
   transition: 150ms;
+}
+
+body {
+  margin: 0px;
+}
+
+.nuxt-link-exact-active {
+  color: var(--border);
 }
 
 ::-webkit-scrollbar {
@@ -83,18 +91,46 @@ html {
   opacity: 0;
 }
 
+.default-theme {
+  background-color: var(--background-dark);
+  color: var(--foreground-dark);
+}
+
+.splitpanes__pane {
+  background-color: var(--background-dark) !important;
+  color: var(--foreground-dark) !important;
+}
+
+.splitpanes__splitter {
+  background-color: var(--border-dark) !important;
+  border-left: var(--border-dark) !important;
+}
+
+.splitpanes__splitter::before {
+  background-color: rgba(255, 255, 255, 0.247) !important;
+}
+
+.splitpanes__splitter::after {
+  background-color: rgba(255, 255, 255, 0.247) !important;
+}
+
+.CodeMirror {
+  height: calc(100vh - 40px) !important;
+  background-color: var(--background-dark) !important;
+}
+
 button {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: var(--foreground);
+  color: gray;
   font-family: var(--sans-serif);
   transition: 0.15s;
   padding: 10px 20px;
   cursor: pointer;
-  background-color: var(--border-dark);
+  background-color: var(--background-dark);
   border-radius: 5px;
   font-size: 14px;
-  border: none;
+  border: 1px solid #2d2d2d;
   box-shadow: 0 2.3px 1.9px rgba(0, 0, 0, 0.013),
     0 5.4px 4.3px rgba(0, 0, 0, 0.019), 0 9.7px 7.7px rgba(0, 0, 0, 0.023),
     0 16.1px 12.8px rgba(0, 0, 0, 0.027), 0 26.5px 21.2px rgba(0, 0, 0, 0.031),
@@ -103,7 +139,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--border);
+  background-color: rgba(30, 28, 38, 1);
   color: var(--foreground-dark);
   transition: 150ms;
 }
@@ -169,10 +205,23 @@ blockquote p {
 }
 
 /* modal stuff */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .modal {
   border-radius: 0px;
   background-color: var(--background-dark);
-  border: 5px solid var(--border);
+  /* border: 5px solid var(--border); */
   padding: 30px 30px;
+  z-index: 8;
+}
+
+.vm--container {
+  z-index: 8 !important;
 }
 </style>
