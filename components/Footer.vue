@@ -9,6 +9,9 @@
         <i class="bx bxl-github"></i>
       </button>
     </a>
+    <button>
+
+    </button>
 
     <div class="right">
       <button>
@@ -17,7 +20,7 @@
       <button
         @click="showHtmlCode()"
         v-tippy="{ animation: 'fade' }"
-        content="Show HTML Code"
+        content="Toggle code preview"
       >
         <i class="bx bx-code"></i></button
       ><button
@@ -67,7 +70,7 @@ footer {
   bottom: 0px;
   right: 0px;
   width: 100%;
-  border-top: 3px solid var(--border-dark);
+  border-top: 3px solid var(--border);
   background-color: var(--background-dark);
   font-family: var(--monospace);
   padding: 0px;

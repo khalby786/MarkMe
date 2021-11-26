@@ -13,6 +13,7 @@
     >
       <div class="modal-content">
         <h1 class="title">#markme</h1>
+        <h3>This project is a work in progress. Kindly report any bugs you find <a href="https://github.com/khalby786/markme/issues" target="_blank">here</a>.</h3>
         <p class="description">
           A simple, lightweight and beautiful Markdown editor and viewer.
         </p>
@@ -59,8 +60,15 @@
 
     <splitpanes class="default-theme">
       <pane>
+        <textarea
+          id="markdown"
+          ref="mdEditor"
+          v-model="markdown"
+          v-if="codeMirrorInput === false"
+        >
+        </textarea>
         <client-only placeholder="Codemirror Loading...">
-          <codemirror v-model="markdown" :options="cmOption"></codemirror>
+          <codemirror v-model="markdown" :options="cmOption" v-if="codeMirrorInput === true"></codemirror>
         </client-only>
       </pane>
       <pane>
@@ -99,6 +107,7 @@ export default {
       html: marked(""),
       files: [],
       showHtmlCode: false,
+      codeMirrorInput: false,
       cmOption: {
         tabSize: 2,
         styleActiveLine: true,
@@ -392,6 +401,14 @@ textarea {
   color: var(--foreground-dark);
   resize: none;
   font-family: var(--monospace);
+  width: 100%;
+  height: calc(100vh - 40px);
+  margin: 0px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
 }
 
 textarea:focus {
