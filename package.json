@@ -22,7 +22,7 @@
     "nuxt": "^2.15.3",
     "prettier": "^2.4.1",
     "prismjs": "^1.23.0",
-    "remotestorage-widget": "^1.5.2",
+    "remotestorage-widget": "^1.5.4",
     "spinkit": "^2.0.1",
     "splitpanes": "^2.3.8",
     "vue-codemirror": "^4.0.6",
