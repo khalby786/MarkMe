@@ -16,7 +16,7 @@
     "core-js": "^3.9.1",
     "dompurify": "^2.2.7",
     "katex": "^0.13.18",
-    "marked": "^2.0.1",
+    "marked": "^4.0.8",
     "mathjax-parser": "^4.0.7",
     "node-emoji": "^1.10.0",
     "nuxt": "^2.15.3",
