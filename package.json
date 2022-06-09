@@ -16,6 +16,8 @@
     "core-js": "^3.9.1",
     "dompurify": "^2.2.7",
     "katex": "^0.13.18",
+    "markdown-it": "^13.0.1",
+    "markdown-it-katex": "^2.0.3",
     "marked": "^2.0.1",
     "mathjax-parser": "^4.0.7",
     "node-emoji": "^1.10.0",

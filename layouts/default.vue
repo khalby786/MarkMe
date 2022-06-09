@@ -1,9 +1,5 @@
 <template>
   <div>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/blocks.css/dist/blocks.min.css"
-    />
     <Nuxt />
 
     <Footer />
@@ -13,7 +9,6 @@
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,700&display=swap");
 
 html {
   --sans-serif: "Inter", "Helvetica", sans-serif;
@@ -32,7 +27,7 @@ html {
   --foreground-dark: white;
   --test: black;
   --border: #ff6b6b;
-  --border-dark: #1e1c26;
+  --border-dark: #222129;
   --scrollbarBG: #100e17;
   --thumbBG: #90a4ae;
   font-weight: 400;
@@ -102,16 +97,33 @@ body {
 }
 
 .splitpanes__splitter {
-  background-color: var(--border-dark) !important;
-  border-left: var(--border-dark) !important;
+  background-color: var(--border-dark);
+  position: relative;
 }
 
-.splitpanes__splitter::before {
-  background-color: rgba(255, 255, 255, 0.247) !important;
+.splitpanes__splitter:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 0.4s;
 }
 
-.splitpanes__splitter::after {
-  background-color: rgba(255, 255, 255, 0.247) !important;
+.splitpanes--vertical > .splitpanes__splitter:before {
+  left: -5px;
+  right: -5px;
+}
+
+.splitpanes--horizontal > .splitpanes__splitter:before {
+  top: -5px;
+  bottom: -5px;
+}
+
+.splitpanes__splitter:hover:before {
+  transition: 1s;
+  background-color: var(--border);
 }
 
 .CodeMirror {
@@ -207,7 +219,7 @@ blockquote p {
 /* modal stuff */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 300ms;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

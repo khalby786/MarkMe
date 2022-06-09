@@ -1,64 +1,8 @@
 <template>
   <div class="container">
-    <!-- <Overlay /> -->
-    <modal
-      name="intro"
-      :adaptive="true"
-      :classes="'modal'"
-      width="100%"
-      height="100%"
-      :styles="'background-color: var(--background-dark);border-radius: 0px;'"
-      :transition="''"
-      :overlayTransition="''"
-    >
-      <div class="modal-content">
-        <h1 class="title">#markme</h1>
-        <h3>This project is a work in progress. Kindly report any bugs you find <a href="https://github.com/khalby786/markme/issues" target="_blank">here</a>.</h3>
-        <p class="description">
-          A simple, lightweight and beautiful Markdown editor and viewer.
-        </p>
-        <button class="links" @click="$modal.hide('intro')">Get Started</button
-        >&nbsp;
-        <NuxtLink to="/about"><button class="links">About</button></NuxtLink>
-        <div class="modal-links">
-          <a href="https://github.com/khalby786/markme">github</a> ~
-          <a href="https://khaleelgibran.com">khaleel gibran</a>
-        </div>
-        <a href="https://www.buymeacoffee.com/" class="bmc-button"
-          ><img
-            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=khaleelgibran&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"
-        /></a>
-      </div>
-    </modal>
+    <IntroModal />
 
-    <header class="md-elements">
-      <span class="md-element" @click="insert('h1')">h1</span>
-      <span class="md-element" @click="insert('h2')">h2</span>
-      <span class="md-element" @click="insert('h3')">h3</span>
-      <span class="md-element" @click="insert('h4')">h4</span>
-      <span class="md-element" @click="insert('h5')">h5</span>
-      <span class="md-element" @click="insert('h6')">h6</span>
-      <span class="md-element" @click="insert('bold')"><b>b</b></span>
-      <span class="md-element" @click="insert('italic')"><i>i</i></span>
-      <span class="md-element" @click="insert('strike')"
-        ><strike>s</strike></span
-      >
-      <span class="md-element" @click="insert('ul')"> · </span>
-      <span class="md-element" @click="insert('ol')">1</span>
-      <span class="md-element" @click="insert('quote')">&gt;</span>
-      <span class="md-element" @click="insert('inline')">I&lt;&gt;</span>
-      <span class="md-element" @click="insert('block')">&lt;&gt;B</span>
-      <span class="md-element" @click="insert('hr')">--</span>
-      <span class="md-element" @click="insert('a')">A</span>
-
-      <div class="right-elements">
-        <!-- <button class="cta-button" id="remotestorage-widget"></button> -->
-        <button class="text-only">login</button> ·
-        <button class="text-only" @click="toggleOutput()">show preview</button>
-      </div>
-    </header>
-
-    <splitpanes class="default-theme">
+    <splitpanes v-if="isInit === true">
       <pane>
         <textarea
           id="markdown"
@@ -68,7 +12,11 @@
         >
         </textarea>
         <client-only placeholder="Codemirror Loading...">
-          <codemirror v-model="markdown" :options="cmOption" v-if="codeMirrorInput === true"></codemirror>
+          <codemirror
+            v-model="markdown"
+            :options="cmOption"
+            v-if="codeMirrorInput === true"
+          ></codemirror>
         </client-only>
       </pane>
       <pane>
@@ -91,20 +39,32 @@
 </template>
 
 <script>
-import marked from "marked";
-import DOMPurify from "dompurify";
-import emoji from "node-emoji";
-import katex from "katex";
+// import marked from "marked";
+// import * as MarkdownIt from "markdown-it";
+// import DOMPurify from "dompurify";
+// import emoji from "node-emoji";
+// import katex from "katex";
 import { Splitpanes, Pane } from "splitpanes";
 import "splitpanes/dist/splitpanes.css";
 import parserHtml from "prettier/parser-html";
 import prettier from "prettier/standalone";
 
+let MarkdownIt = require("markdown-it");
+let katex = require("markdown-it-katex");
+let defaultConfig = {
+  html: true,
+  breaks: true,
+  linkify: true,
+  typographer: true,
+};
+
 export default {
   data: function () {
     return {
+      // isInit: false,
+      markdownIt: new MarkdownIt(defaultConfig),
       markdown: "# hi",
-      html: marked(""),
+      html: null,
       files: [],
       showHtmlCode: false,
       codeMirrorInput: false,
@@ -166,10 +126,6 @@ export default {
       ],
     };
   },
-  mounted() {
-    this.$modal.show("intro");
-    this.convertMarkdown(this.markdown);
-  },
   methods: {
     // 1. Get markdown
     // 2. Strip XSS and other shenanigans
@@ -177,38 +133,19 @@ export default {
     // 4. Convert to HTML
     // 5. Render math
     convertMarkdown: function (markdown) {
-      marked.setOptions({
-        highlight: function (code, lang) {
-          const language = hljs.getLanguage(lang) ? lang : "plaintext";
-          return hljs.highlight(code, { language }).value;
-        },
-        gfm: true,
-      });
-
-      this.html = this.processMarkdown(markdown);
-
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false },
-          { left: "\\(", right: "\\)", display: false },
-          { left: "\\[", right: "\\]", display: true },
-        ],
-      });
+      this.html = this.markdownIt.render(markdown);
     },
-    processMarkdown: function (markdown) {
-      markdown = DOMPurify.sanitize(markdown);
-      const replacer = (match) => emoji.emojify(match);
-      markdown = markdown.replace(/(:.*:)/g, replacer);
-      return marked(markdown);
-    },
+    // processMarkdown: function (markdown) {
+    //   // markdown = DOMPurify.sanitize(markdown);
+    //   const replacer = (match) => emoji.emojify(match);
+    //   markdown = markdown.replace(/(:.*:)/g, replacer);
+    //   return md.render(markdown);
+    // },
     beautifyHtml: function () {
-      console.log(this.html);
       this.html = prettier.format(this.html, {
         parser: "html",
         plugins: [parserHtml],
       });
-      console.log(this.html);
     },
     insert: function (markdown) {
       let charBehind;
@@ -318,16 +255,93 @@ export default {
     //   }
     // },
   },
+  computed: {
+    isInit() {
+      return this.$store.state.isInit;
+    },
+    mditHtml() {
+      return this.$store.state.markdown.html;
+    },
+    mditBreaks() {
+      return this.$store.state.markdown.breaks;
+    },
+    mditLinkify() {
+      return this.$store.state.markdown.linkify;
+    },
+    mditTypographer() {
+      return this.$store.state.markdown.typographer;
+    },
+    mditKatex() {
+      return this.$store.state.markdown.katex;
+    },
+  },
   watch: {
-    markdown: function (oldMarkdown, newMarkdown) {
-      if (oldMarkdown !== null) {
-        this.convertMarkdown(oldMarkdown);
+    // watch for markdown changes, and process accordingly
+    markdown: function (newMarkdown, oldMarkdown) {
+      if (newMarkdown !== null) {
+        this.convertMarkdown(newMarkdown);
+      }
+    },
+
+    // has the modal been hidden?
+    isInit: function (newValue, oldValue) {
+      console.log(newValue);
+    },
+
+    // detect markdown-it config changes
+    mditHtml: function (newValue, oldValue) {
+      if (newValue !== oldValue || newValue !== null) {
+        md.set({ html: newValue });
+      }
+    },
+    mditBreaks: function (newValue, oldValue) {
+      if (newValue !== oldValue || newValue !== null) {
+        md.set({ breaks: newValue });
+      }
+    },
+    mditLinkify: function (newValue, oldValue) {
+      if (newValue !== oldValue || newValue !== null) {
+        md.set({ linkify: newValue });
+      }
+    },
+    mditTypographer: function (newValue, oldValue) {
+      if (newValue !== oldValue || newValue !== null) {
+        md.set({ typographer: newValue });
+      }
+    },
+    mditKatex: function (newValue, oldValue) {
+      if (newValue !== oldValue || newValue !== null) {
+        // if katex is true...
+        if (newValue === true) {
+          // create new instance with katex loaded
+          this.markdownIt = new MarkdownIt({
+            html: this.mditHtml,
+            breaks: this.mditBreaks,
+            linkify: this.mditLinkify,
+            typographer: this.mditTypographer,
+            highlight: function (code, lang) {
+              const language = hljs.getLanguage(lang) ? lang : "plaintext";
+              return hljs.highlight(code, { language }).value;
+            },
+          }).use(katex);
+        } else {
+          // else don't use katex
+          this.markdownIt = new MarkdownIt({
+            html: this.mditHtml,
+            breaks: this.mditBreaks,
+            linkify: this.mditLinkify,
+            typographer: this.mditTypographer,
+            highlight: function (code, lang) {
+              const language = hljs.getLanguage(lang) ? lang : "plaintext";
+              return hljs.highlight(code, { language }).value;
+            },
+          });
+        }
       }
     },
   },
   created() {
     this.$root.$on("showHtmlCode", () => {
-      console.log("kobe!");
       this.showHtmlCode = !this.showHtmlCode;
     });
 
@@ -335,38 +349,39 @@ export default {
       this.beautifyHtml();
     });
   },
+  mounted() {
+    // enable or disable katex?
+    if (this.mditKatex === true) {
+      this.markdownIt = new MarkdownIt({
+        html: this.mditHtml,
+        breaks: this.mditBreaks,
+        linkify: this.mditLinkify,
+        typographer: this.mditTypographer,
+        highlight: function (code, lang) {
+          const language = hljs.getLanguage(lang) ? lang : "plaintext";
+          return hljs.highlight(code, { language }).value;
+        },
+      }).use(katex);
+    } else {
+      this.markdownIt = new MarkdownIt({
+        html: this.mditHtml,
+        breaks: this.mditBreaks,
+        linkify: this.mditLinkify,
+        typographer: this.mditTypographer,
+        highlight: function (code, lang) {
+          const language = hljs.getLanguage(lang) ? lang : "plaintext";
+          return hljs.highlight(code, { language }).value;
+        },
+      });
+    }
+
+    // HERE COMES THE PARTY!
+    this.convertMarkdown(this.markdown);
+  },
 };
 </script>
 
 <style scoped>
-.md-elements {
-  height: 30px;
-  padding: 5px 10px;
-  border-bottom: 1px solid var(--border);
-  font-family: var(--monospace);
-  font-size: 16px;
-  overflow: auto;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  display: none;
-}
-
-.md-element {
-  cursor: pointer;
-  margin-right: 7px;
-  color: var(--border-dark);
-}
-
-.right-elements {
-  float: right;
-}
-
-.right-elements > button {
-  background-color: var(--background-dark);
-}
-
 #html {
   box-sizing: border-box;
   height: calc(100vh - 40px);
@@ -417,42 +432,5 @@ textarea:focus {
 
 pre {
   background-color: var(--background-dark) !important;
-}
-
-/* modal stuff */
-
-.title {
-  font-family: "Fira Code", monospace;
-  color: var(--border);
-  margin-top: 0px;
-}
-
-.modal-links {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid gray;
-}
-
-.modal-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.bmc-button {
-  height: 25px;
-  width: 210px;
-  margin-top: 30px;
-  display: inline-block;
-}
-
-.slide-leave-active,
-.slide-enter-active {
-  transition: 0.25s;
-}
-.slide-enter {
-  transform: translate(100%, 0);
-}
-.slide-leave-to {
-  transform: translate(-100%, 0);
 }
 </style>
