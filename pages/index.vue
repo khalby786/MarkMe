@@ -39,16 +39,12 @@
 </template>
 
 <script>
-// import marked from "marked";
-// import * as MarkdownIt from "markdown-it";
-// import DOMPurify from "dompurify";
-// import emoji from "node-emoji";
-// import katex from "katex";
 import { Splitpanes, Pane } from "splitpanes";
 import "splitpanes/dist/splitpanes.css";
 import parserHtml from "prettier/parser-html";
 import prettier from "prettier/standalone";
 
+let hljs = require('highlight.js');
 let MarkdownIt = require("markdown-it");
 let katex = require("markdown-it-katex");
 let defaultConfig = {
@@ -56,6 +52,15 @@ let defaultConfig = {
   breaks: true,
   linkify: true,
   typographer: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(str, { language: lang }).value;
+      } catch (__) {}
+    }
+
+    return ""; // use external default escaping
+  },
 };
 
 export default {
@@ -109,11 +114,6 @@ export default {
   },
   head() {
     return {
-      script: [
-        {
-          src: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js",
-        },
-      ],
       link: [
         {
           rel: "stylesheet",

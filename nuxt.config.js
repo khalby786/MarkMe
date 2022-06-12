@@ -31,28 +31,6 @@ export default {
         href: "https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css",
       },
     ],
-    script: [
-      { src: "https://cdn.jsdelivr.net/npm/marked/marked.min.js", body: true },
-      {
-        src: "https://kit.fontawesome.com/98f54f160f.js",
-        crossorigin: "anonymous",
-        body: true,
-      },
-      {
-        src: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js",
-        integrity:
-          "sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb",
-        crossorigin: "anonymous",
-        defer: true,
-      },
-      {
-        src: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js",
-        integrity:
-          "sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl",
-        crossorigin: "anonymous",
-        defer: true,
-      },
-    ],
   },
 
   plugins: [

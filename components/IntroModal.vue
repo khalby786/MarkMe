@@ -24,6 +24,7 @@
         <a href="https://github.com/khalby786/markme">github</a> ~
         <a href="https://khaleelgibran.com">khaleel gibran</a>
       </div>
+      <p><a href="https://markme.glitch.me" target="_blank">Try out v1 <i class='bx bx-link-external'></i></a></p>
     </div>
   </modal>
 </template>
@@ -98,5 +99,9 @@ export default {
 }
 .slide-leave-to {
   transform: translate(-100%, 0);
+}
+
+i {
+  vertical-align: middle;
 }
 </style>

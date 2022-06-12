@@ -170,7 +170,7 @@ button:hover {
 
 img {
   border-radius: 9px;
-  width: 100%;
+  max-width: 100%;
   box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.138), 0 0px 5.3px rgba(0, 0, 0, 0.198),
     0 0px 10px rgba(0, 0, 0, 0.245), 0 0px 17.9px rgba(0, 0, 0, 0.292),
     0 0px 33.4px rgba(0, 0, 0, 0.352), 0 0px 80px rgba(0, 0, 0, 0.49);
@@ -214,6 +214,30 @@ blockquote:before {
 
 blockquote p {
   display: inline;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  background-color: #eee;
+}
+
+tr:first-of-type th {
+  width: 100px;
+}
+
+tr:first-of-type th:first-of-type {
+  width: 25px;
+}
+
+td {
+  border: 1px solid #ccc;
+  height: 1.5em;
+  overflow: scroll;
 }
 
 /* modal stuff */

@@ -7,7 +7,14 @@
       content="Country roads, take me home!"
     >
       <i class="bx bx-home"></i></button
-    ><button v-if="isInit === true">
+    ><button
+      v-if="isInit === true"
+      v-tippy="{ animation: 'fade' }"
+      content="Edit preferences"
+    >
+      <i class="bx bx-cog"></i>
+    </button>
+    &nbsp;<button v-if="isInit === true">
       <i class="bx bx-plus"></i></button
     ><button
       v-if="isInit === true"
