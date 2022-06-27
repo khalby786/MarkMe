@@ -28,7 +28,7 @@
     "vue-codemirror": "^4.0.6",
     "vue-js-modal": "^2.0.1",
     "vue-simple-context-menu": "^3.4.1",
-    "vue-tippy": "^4.11.0",
+    "vue-tippy": "^4.14.0",
     "vue-toast-notification": "^0.6.2"
   },
   "devDependencies": {
