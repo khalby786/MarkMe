@@ -20,7 +20,7 @@
     "markdown-it-emoji": "^2.0.2",
     "markdown-it-katex": "^2.0.3",
     "mathjax-parser": "^4.0.7",
-    "nuxt": "^2.15.3",
+    "nuxt": "^3.0.0",
     "prettier": "^2.4.1",
     "remotestorage-widget": "^1.5.2",
     "spinkit": "^2.0.1",
